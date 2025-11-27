@@ -7,6 +7,7 @@ export default function Home() {
         🚀 Välkommen till <span style={{ color: "#f0f" }}>LidlWater</span>
       </h1>
       <p>AI-aktiescanner från framtiden – byggd på 90-talets drömmar och dagens teknik.</p>
+<p style={{ color: 'green' }}>✅ Auto-deploy är igång!</p>
 
       <ul style={{ marginTop: "2rem" }}>
         <li><Link href="/dashboard">📊 Gå till Dashboard</Link></li>
