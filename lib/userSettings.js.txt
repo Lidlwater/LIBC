@@ -1,0 +1,33 @@
+import { supabase } from './supabase';
+
+export async function getUserSettings(userId) {
+  const { data, error } = await supabase
+    .from('user_settings')
+    .select('*')
+    .eq('user_id', userId)
+    .single();
+
+  if (error && error.code !== 'PGRST116') {
+    // PGRST116 = no rows returned
+    console.error('Fel vid hämtning av inställningar:', error);
+  }
+
+  return data || null;
+}
+
+export async function saveUserSettings(userId, settings) {
+  const { data, error } = await supabase
+    .from('user_settings')
+    .upsert({
+      user_id: userId,
+      settings,
+    }, { onConflict: ['user_id'] }) // Upsert baserat på user_id
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Fel vid sparande av inställningar:', error);
+  }
+
+  return data;
+}
