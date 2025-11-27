@@ -1,0 +1,13 @@
+export default function BuzzFilter({ selected, onChange }) {
+  return (
+    <div style={{ marginBottom: "2rem", fontFamily: "monospace" }}>
+      <label>Buzz-nivå: </label>
+      <select value={selected} onChange={e => onChange(e.target.value)}>
+        <option value="all">Alla</option>
+        <option value="low">Låg</option>
+        <option value="medium">Medel</option>
+        <option value="high">Hög</option>
+      </select>
+    </div>
+  );
+}

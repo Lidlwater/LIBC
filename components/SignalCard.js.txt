@@ -1,0 +1,19 @@
+export default function SignalCard({ title, score, explanation }) {
+  return (
+    <div
+      style={{
+        padding: "1rem 1.5rem",
+        marginBottom: "1.2rem",
+        background: "#111",
+        color: "#fff",
+        border: "1px solid #7CFF7C",
+        borderRadius: "8px",
+        fontFamily: "monospace",
+      }}
+    >
+      <h2>{title}</h2>
+      <p>Score: {score}</p>
+      <p>📌 {explanation}</p>
+    </div>
+  );
+}
